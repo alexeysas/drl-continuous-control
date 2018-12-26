@@ -8,12 +8,12 @@
 
 ### Goal
 
-The goal of the project is to train agent to Solve "Bananas" environemnt. You can found detailed description of the environemnt following the [link](README.md) 
+The goal of the project is to train agent to Solve "Reacher" environemnt. You can found detailed description of the environemnt following the [link](README.md) 
 
 
 ### Solution Summary
 
-To solve the environment we are going to use Deep Q-learning with experience replay algorithm published in the [the Deepmind paper](https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf). We need to calculate optimal action-value function Q:
+To solve the environment we are going to use Deep deterministic policy gradient (DDPG) algorithm published in the [the Deepmind paper](https://arxiv.org/pdf/1509.02971.pdf). The ieda of the algorithm is to combine [Policy gradient methods](http://www.scholarpedia.org/article/Policy_gradient_methods) to learn optimal policy together with [DQN algorithm](https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf) to learn Q function. The problem with base DQN algorithm is that it can solve environmetns with descrete action space. However, most of the real-world tasks expecially in the physical control domain has continius and high dimentional action spaces. DDPG algorith was designed to solve these issues and learn policies in high-dimensional, continuous action spaces.
 
 ![Action-value function][image1]
 
