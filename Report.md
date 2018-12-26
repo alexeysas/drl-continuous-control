@@ -52,14 +52,33 @@ Please note that there are two additional ideas used to improve algorithm conver
 
 ### Network archtiecture
 
-![network architecture][image2]
+The overall architectures we come up with which provide good training results for the Reacher environment are presented on the images below:
+
+Policy network (Actor)
+
+![network architecture][image8]
+
+Q network (Critic) 
+
+![network architecture][image8]
+
+Relu is used as activation function and dropout as regularization technique.
 
 
-### Variations 
+### Next Steps
 
-1. The Double DQN
+1. There are possible additional improvements might be tried described in the [Rainbow paper](https://arxiv.org/pdf/1710.02298.pdf)
 
-2. Dueling DQN: 
+   - [Prioritized experience relay](https://arxiv.org/abs/1511.05952)
+   - [Distributional RL](https://arxiv.org/abs/1707.06887)
+   - [Noisy nets](https://arxiv.org/abs/1706.10295)
 
-![ Dueling DQN][image3]
+
+2. Also additional improvements might be related to the environment state itself.  The idea is related to some observed behavior during training process when agent stack between black bananas. It might be beneficial to add additional value to state vector which indicates how much time left to complete the episode. The intuition behind that is that same states in the beginning of the episode and at the end of episode have different values. The most vivid example is when you surrounded by black bananas - in the beginning of the episode it makes sense just go and collect banana to get out of trap at cost of the -1 points and compensate later. As at the end of the episode it might have more sense to just stay and wait while episode completed.
+
+3. And the final step was to try to learn agent from the raw pixel data using Convolutional network as originally proposed in the DeepMind paper.  Also there might be good idea to use Recurrent Net or long sequence of frames with Convolutional Net to "remember" what agent seen couple of seconds ago – which is especially useful when agent is rotated at 180 degrees and this information is lost.
+
+### Sample 
+
+Here is sample of performance of the Dueling DDQN agent with averege score = 17:  https://github.com/alexeysas/drl-navigation/blob/master/video/test.mp4
 
