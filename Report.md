@@ -32,14 +32,17 @@ Additinaly we need to use function aproximator (Neural network) to aproximate op
 
 To find an optimal policy we need our policy function to maximize Q value from bellman equasion above. So we use standard gradient accesnt method. 
 
-The problem is that our state space is continius  with 37 dimensions so we can not use traditional temporal-difference method like SARSA or [Q-learning](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.7501&rep=rep1&type=pdf). Of course this task can be solved with descritisations techniques like: Tile Coding or Course Coding. However as described in the paper the better results can be archived with function approimation aproach and using of Neural Network as a universal function aproximator for this purpose.  So we approaximating true action-value function q(S,a) with function q(S,a,w). Our goal is to optimize parameters w to make approximatein as good as possible.
+So full algorithm described in a [paper](https://arxiv.org/pdf/1509.02971.pdf) is below:
 
-It was a known fact that reinfercement learning is unstable when a Q function is represented with newral network. Autwors introduced two additional ideas:
+[[Use algorithm image]]
 
-    - Expirience replay - the mecjanomt to store observed tuples of (state, action, next_state, is_terminal) in the special buffer and randomly sample these tuples during 
-    - Target values are stored in the separate network with same archtiecture and only periodicaly updated reducing correlation with target
-    
- So the final idea of the algorithm is to parameterize an approximate value function
+Please note that there are two additinal ideas used to improve algorithm convergence
+
+- As mentioned in the paper to favor additional exploration noise was added to the actions defined by policy:
+[[noise image]]
+
+- The weights of target networks are softly updated during each steps in contrast to [original DQN paper](https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf) where weights of target networks are updated only periodically
+
 
 ### Network archtiecture
 
