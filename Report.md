@@ -7,6 +7,8 @@
 [image5]: images/policy2.png "Policy"
 [image6]: images/algorithm.png "Algorithm"
 [image7]: images/noise.png "Noise"
+[image8]: images/actor.png "Actor"
+[image9]: images/critic.png "Critic"
 
 #  Continuous Control
 
