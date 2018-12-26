@@ -27,13 +27,13 @@ In our case we are going to learn deterministic policy:
 
 ![Policy][image2] 
 
-So in our case we can use Bellman equation presented in this way below:
+As usual algorithm is based on the recousive Bellman equation presented in this way below:
 
-[[insert Bellamn image]]
+![Bellman][image3] 
 
-In the same way as in DQN we use function aproximator (Neural network) to learn Q function  and need to optimize MSE loss below:
+Similarly to the DQN algorithm we use function aproximator (Neural network) to learn Q function and need to optimize MSE loss below:
 
-[[insert MSE loss image]]
+![MSE][image4] 
 
 Additinaly we need to use function aproximator (Neural network) to aproximate optimal policy function 
 
