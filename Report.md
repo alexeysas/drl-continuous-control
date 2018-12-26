@@ -62,25 +62,49 @@ Policy network (Actor)
 
 Q network (Critic) 
 
-![network architecture][image8]
+![network architecture][image9]
 
-Relu is used as activation function and dropout as regularization technique.
+Relu is used as activation function and dropout as regularization technique. Also batch normalization is used for Actor network to imporve convergence.
 
+### Training [TODO]
+
+Network was trained on the [TODO] iterations. And result can be seen on the diagram below.
+
+![results][image10]
+
+As you can see environment was solved around [TODO] episodes. And maximum average score over 100 episodes is [TODO]. Which is pretty good result.
+
+[TODO] The parameters are below works well. Tring to tune them does not affect learning in a better way.  Moreover, some results slightly different from the results from the paper. For example, trying to reduce frequency it which target network weights are updated from learning network leads to noticeable worse training process.
+
+```python
+
+hyperparams = { "BUFFER_SIZE" : int(1e6),  # replay buffer size
+                "BATCH_SIZE" : 1024,        # minibatch size
+                "GAMMA" : 0.99,             # discount factor
+                "TAU" : 1e-3,               # for soft update of target parameters
+                "LR" : 1e-4,                # learning rate 
+                "LEARN_EVERY" : 10,         # how often to update the network
+                "LEARN_ITERATIONS" : 10,    # how many iterations needed for each network update
+              }
+              
+```
 
 ### Next Steps
 
-1. There are possible additional improvements might be tried described in the [Rainbow paper](https://arxiv.org/pdf/1710.02298.pdf)
+1. As standard DQN approach is used to learn Q value function in the DDPG it might be considered to try possible DQN imporvements described in the [Rainbow paper](https://arxiv.org/pdf/1710.02298.pdf) to improve training performance.
 
-   - [Prioritized experience relay](https://arxiv.org/abs/1511.05952)
+   - [Dueling DQN](https://arxiv.org/abs/1511.06581)
+   - [The Double DQN](https://arxiv.org/abs/1509.06461)
+   - [Prioritized experience relay](https://arxiv.org/abs/1511.05952). This one might be especially beneficial in theory to speed up   training as experiences where arm reached a target point in the beginning might be extremely rare and valuable.
    - [Distributional RL](https://arxiv.org/abs/1707.06887)
    - [Noisy nets](https://arxiv.org/abs/1706.10295)
 
 
-2. Also additional improvements might be related to the environment state itself.  The idea is related to some observed behavior during training process when agent stack between black bananas. It might be beneficial to add additional value to state vector which indicates how much time left to complete the episode. The intuition behind that is that same states in the beginning of the episode and at the end of episode have different values. The most vivid example is when you surrounded by black bananas - in the beginning of the episode it makes sense just go and collect banana to get out of trap at cost of the -1 points and compensate later. As at the end of the episode it might have more sense to just stay and wait while episode completed.
+2. Also with slight modification we can apply DDPG algorithm to multiagent environment. The idea there is to have shared experience buffer and single brain for all agents. There might be an improvement in training as agents observe different experience.
 
-3. And the final step was to try to learn agent from the raw pixel data using Convolutional network as originally proposed in the DeepMind paper.  Also there might be good idea to use Recurrent Net or long sequence of frames with Convolutional Net to "remember" what agent seen couple of seconds ago – which is especially useful when agent is rotated at 180 degrees and this information is lost.
+3. Finally, we want to implement other Policy gradient methods such as [Proximal Policy Optimization](https://arxiv.org/abs/1707.06347) or Actor-Critic methods such as A3C: Asynchronous Advantage Actor-Critic and compare their performance for the "Reacher" environemnt.
 
-### Sample 
+### Sample [TODO]
 
-Here is sample of performance of the Dueling DDQN agent with averege score = 17:  https://github.com/alexeysas/drl-navigation/blob/master/video/test.mp4
+Here is sample of performance of the DDPG agent with averege score = [TODO]:  https://github.com/alexeysas/drl-continuous-control/blob/master/video/test.mp4
 
