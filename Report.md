@@ -35,21 +35,20 @@ Similarly to the DQN algorithm we use function aproximator (Neural network) to l
 
 ![MSE][image4] 
 
-Additinaly we need to use function aproximator (Neural network) to aproximate optimal policy function 
+Additinaly,  we need to use function aproximator (Neural network) to aproximate optimal policy function:
 
-[[insert Policy 2 image there]]
-![Action-value function][image1]
+![Policy][image5]
 
-To find an optimal policy we need our policy function to maximize Q value from bellman equasion above. So we use standard gradient accesnt method. 
+as well.
 
-So full algorithm described in a [paper](https://arxiv.org/pdf/1509.02971.pdf) is below:
+To find an optimal policy we need our policy function learned in a way to maximize Q value from Bellman equasion above. So we use standard method for policy gradient methods - gradient accent. Full algorithm described in a [paper](https://arxiv.org/pdf/1509.02971.pdf) is below:
 
-[[Use algorithm image]]
+![Algorithm][image6]
 
 Please note that there are two additinal ideas used to improve algorithm convergence
 
-- As mentioned in the paper to favor additional exploration noise was added to the actions defined by policy:
-[[noise image]]
+- As mentioned in the paper to favor additional exploration, noise was added to the actions defined by the policy:
+![Noise][image7]
 
 - The weights of target networks are softly updated during each steps in contrast to [original DQN paper](https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf) where weights of target networks are updated only periodically
 
