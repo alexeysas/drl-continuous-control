@@ -70,4 +70,4 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 ### Instructions
 
-Run Notebook using command "jupyter notebook" and follow the instructions in `Navigation.ipynb` to get started with training the agent! 
+Run Notebook using command "jupyter notebook" and follow the instructions in `Continuous_Control.ipynb` to get started with training the agent! 
