@@ -62,7 +62,7 @@ Policy network (Actor)
 
 Q network (Critic) 
 
-![network architecture][image8]
+![network architecture][image9]
 
 Relu is used as activation function and dropout as regularization technique.
 
