@@ -9,6 +9,7 @@
 [image7]: images/noise.png "Noise"
 [image8]: images/actor.png "Actor"
 [image9]: images/critic.png "Critic"
+[image10]: images/training.png "Training"
 
 #  Continuous Control
 
