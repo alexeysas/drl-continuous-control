@@ -104,7 +104,7 @@ hyperparams = { "BUFFER_SIZE" : int(1e6),  # replay buffer size
 
 3. Finally, we want to implement other Policy gradient methods such as [Proximal Policy Optimization](https://arxiv.org/abs/1707.06347) or Actor-Critic methods such as A3C: Asynchronous Advantage Actor-Critic and compare their performance for the "Reacher" environemnt.
 
-### Sample [TODO]
+### Sample
 
-Here is sample of performance of the DDPG agent with averege score = [TODO]:  https://github.com/alexeysas/drl-continuous-control/blob/master/video/test.mp4
+Here is sample of performance of the DDPG agent with averege score = 39.6:  https://github.com/alexeysas/drl-continuous-control/blob/master/samples/test.mp4
 
