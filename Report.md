@@ -67,15 +67,17 @@ Q network (Critic)
 
 Relu is used as activation function and dropout as regularization technique. Also batch normalization is used for Actor network to imporve convergence.
 
-### Training [TODO]
+### Training
 
-Network was trained on the [TODO] iterations. And result can be seen on the diagram below.
+Network was trained and environment was solved in 177 episodes. And result can be seen on the diagram below.
 
 ![results][image10]
 
-As you can see environment was solved around [TODO] episodes. And maximum average score over 100 episodes is [TODO]. Which is pretty good result.
+Maximum average score over 100 episodes is 30.594. Which is pretty good result.
 
-[TODO] The parameters are below works well. Tring to tune them does not affect learning in a better way.  Moreover, some results slightly different from the results from the paper. For example, trying to reduce frequency it which target network weights are updated from learning network leads to noticeable worse training process.
+PParameters below works well for training.  Changes of most of them do not affect training process in a great way. However, during tons of experiments, I come up with two key components which reduces training time dramatically:
+- Adding batch normalization layer to the critic network to the first layer reduced convergence time from 300 – 400 episodes to 170- 200 episodes with all other parameters fixed
+- Increase in memory buffer makes training process smoother and less volatile
 
 ```python
 
